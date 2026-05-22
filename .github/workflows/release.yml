@@ -21,9 +21,10 @@ jobs:
       run: |
         for dir in ./*-res-*/; do
           target=$(echo $dir | cut -f 2 -d /)
-          mv $target/resources .
-          zip -r $target.zip resources
-          rm -rf resources
+          cd $target
+          zip -r $target.zip ./*
+          mv $target.zip ..
+          rm -rf $target
         done
 
     - name: Create release
