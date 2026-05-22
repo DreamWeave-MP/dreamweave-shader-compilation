@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+set -e
+
 for dir in ./*-res-*/; do
   target=$(echo $dir | cut -f 2 -d /)
   cd $target
   zip -r $target.zip ./*
   mv $target.zip ..
-  rm -rf $target
+  cd - && rm -rf $target
 done
