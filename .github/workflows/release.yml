@@ -11,14 +11,14 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
 
     - name: Compile & package resources (for normal humans)
       id: compile
       run: ./compile-resources && ./zip-resources
 
     - name: Create release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3.0.0
       with:
         files: |
           *-res-*.zip
