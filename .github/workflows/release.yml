@@ -13,12 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Compile resources
+    - name: Compile & package resources (for normal humans)
       id: compile
-      run: ./compile-resources
-
-    - name: Zip resources (for normal humans)
-      run: ./zip-resources
+      run: ./compile-resources && ./zip-resources
 
     - name: Create release
       uses: softprops/action-gh-release@v2
