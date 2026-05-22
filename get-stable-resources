@@ -4,14 +4,12 @@ set -e
 
 rm -rf stable-res
 
-ref="${1:-openmw-51-rc2}" 
-base_name="openmw-${ref}.0-Linux-64Bit"
-#archive_name="${base_name}.tar.gz"
+ref="${1:-51-rc2}" 
 # FIXME: Remove after formal release
-archive_name="openmw-0.51.0-Linux-64BitRC2.tar.gz"
-#base_url="https://github.com/OpenMW/openmw/releases/download/openmw-${ref}.0/${archive_name}"
-# FIXME: Remove after formal release
-base_url="https://github.com/OpenMW/openmw/releases/download/openmw-51-rc2/openmw-0.51.0-Linux-64BitRC2.tar.gz"
+#base_name="openmw-${ref}.0-Linux-64Bit"
+base_name="openmw-0.51.0-Linux-64BitRC2"
+archive_name="${base_name}.tar.gz"
+base_url="https://github.com/OpenMW/openmw/releases/download/openmw-${ref}/${archive_name}"
 
 echo Downloading OpenMW archive for version: ${ref}
 wget -q --show-progress -O "${archive_name}" "${base_url}"
